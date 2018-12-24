@@ -1,0 +1,53 @@
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+.section{
+  background: #fff;
+  padding:40rpx 30rpx 30rpx;
+  color: #353535;
+  font-size: 30rpx;
+}
+.section view{
+  padding:11rpx 21rpx;
+  border:1rpx solid #EAEAEA;
+  border-radius: 30rpx;
+  -webkit-border-radius: 30rpx;
+  -moz-border-radius: 30rpx;
+  -ms-border-radius: 30rpx;
+  -o-border-radius: 30rpx;
+  margin-right: 30rpx;
+}
+.section .active{
+  color: #FE4543;
+  border-color: #FE4543;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+}
+.section1 {
+  font-size: 24rpx;
+  color: #666;
+}
+.section1 .evaluate {
+  padding: 30rpx 30rpx 34rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.section1 .evaluate:last-of-type {
+  border-bottom: 0;
+}
+
+.section1 .text {
+  padding: 30rpx 0;
+}
+
+.section1 .img image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+}

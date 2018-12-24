@@ -1,0 +1,11 @@
+<view class='section'>
+<scroll-view scroll-x="true" class='touchScroll' bindscroll="scroll" scroll-left="{{scrollLeft}}">
+  <view class='touch'>
+    <block wx:for="{{canvas}}" wx:for-item="item" wx:key="{{index}}">
+      <canvas canvas-id='{{item.canvasId}}' id='{{item.id}}' class='{{index==canvasIndex?"active":""}}'></canvas>
+    </block>
+  </view>
+</scroll-view>
+</view>
+<view class='submit text-center' catchtap='submit'>保存图片</view>
+<view class='text-center share'>赶紧分享给好友吧!</view>

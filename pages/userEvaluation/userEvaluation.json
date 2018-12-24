@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "评价",
+  "usingComponents": {
+    "orderBtn": "/component/orderBtn/orderBtn",
+    "null": "/component/null/null"
+  }
+}

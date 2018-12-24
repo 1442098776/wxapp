@@ -1,0 +1,37 @@
+scroll-view{
+  background: #fff;
+}
+scroll-view .null{
+  height: 60rpx;
+  background: #FAFAFA;
+}
+.section{
+  color: #999999;
+  font-size: 24rpx;
+  padding:30rpx 30rpx 0;
+}
+.section .title{
+  color: #353535;
+  font-size: 30rpx;
+  margin-bottom: 50rpx;   
+}
+.section .title>view:first-of-type,.section .title>view:last-of-type,.section .count>view:first-of-type,.section .count>view:last-of-type{
+  width: 30%;
+}
+.section .title>view:nth-of-type(2){
+  width: 40%;
+  border-left: 2rpx solid #EAEAEA;
+  border-right: 2rpx solid #EAEAEA;
+}
+.section .count>view{
+  margin-bottom: 40rpx;
+}
+.section .count>view:first-of-type{
+  padding-left: 30rpx;
+}
+.section .count>view:last-of-type{
+  padding-right: 30rpx;
+}
+.section .count>view:nth-of-type(2){
+  width: 40%;
+}

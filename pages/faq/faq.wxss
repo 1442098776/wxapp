@@ -1,0 +1,23 @@
+page{
+  background: #fff;
+}
+.section{
+  padding:0 30rpx;
+  font-family: PingFang-SC-Medium;
+}
+.section>.count{
+  padding:40rpx 0;
+  border-bottom: 1rpx dashed #EAEAEA;
+}
+.section>.count:last-of-type{
+  border:0;
+}
+.section .title{
+  color: #323232;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+}
+.section .content{
+  color: #999999;
+  font-size: 22rpx;
+}

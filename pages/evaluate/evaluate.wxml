@@ -1,0 +1,27 @@
+<block wx:for="{{product}}" wx:for-item="item" wx:key="{{item.id}}">
+  <view class='contenCount'>
+  <view class='section'>
+    <view class='flex'>
+      <view class='left'>
+        <image src="{{item.pic}}" />
+      </view>
+      <view class='right'>
+        <view class='flex flex-between'>
+          <view>{{item.goods_name}}</view>
+          <text>￥{{item.price}}</text>
+        </view>
+        <view class='flex flex-between'>
+          <text>{{item.descr}}</text>
+          <text>×{{item.goods_num}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='section1'>
+    <textarea value='{{item.value}}' data-index="{{index}}" bindinput='checkValue' placeholder='宝贝满足您的期待吗？留下您的足迹吧!'></textarea>
+    <upload text="{{text}}" id="upload{{index}}" url="{{url}}" />
+  </view>
+  </view>
+</block>
+<view style='height:88rpx;'></view>
+<view class='submit text-center' catchtap='submit'>提交</view>

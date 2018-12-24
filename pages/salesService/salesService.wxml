@@ -1,0 +1,48 @@
+<scroll-view scroll-y bindscrolltolower="lower" lower-threshold="50" style='height:{{height}}px' enable-back-to-top="true">
+  <view class='section1' wx:if="{{list.length!=0}}">
+    <block wx:for="{{list}}" wx:for-item="item" wx:key="{{item.order_id}}" wx:for-index="index">
+      <view class='order'>
+        <view class='flex flex-between top'>
+          <view class='flex'>
+            <view>订单号: {{item.order_id}}</view>
+            <view>{{item.addtime}}</view>
+          </view>
+          <view class='red' wx:if="{{item.status==0}}">已申请</view>
+          <view class='red' wx:elif="{{item.style==5 && item.status==4}}">已完成</view>
+          <view class='red' wx:elif="{{item.style==6 && item.status==6}}">已完成</view>
+          <view class='red' wx:else>正在处理</view>
+        </view>
+        <block wx:for="{{item.goods}}" wx:for-item="item1" wx:key="{{item1.id}}" wx:for-index="index1">
+          <view class='flex middel'>
+            <view class='left'>
+              <image src="{{item1.pic}}" />
+            </view>
+            <view class='right'>
+              <view class='flex flex-between'>
+                <text>{{item1.goods_name}}</text>
+                <text>￥{{item1.price}}</text>
+              </view>
+              <view class='flex flex-between'>
+                <text>{{item1.descr}}</text>
+                <text>×{{item1.goods_num}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='bottom'>
+          <view class='total'>共{{item.num}}件商品
+            <text>合计:</text>
+            <text>￥{{item.tmoney}}</text>(含运费￥{{item.yunfei}})
+          </view>
+          <view class='flex btn'>
+            <view class='text-center' data-orderNumber="{{item.order_id}}" catchtap='look' data-style="{{item.style}}">查看详情</view>
+            <!-- <view class='text-center' wx:if="{{item.state==0}}" data-orderNumber="{{item.orderNumber}}" data-index="{{index}}" catchtap='cancel'>取消申请</view> -->
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view wx:else>
+    <null />
+  </view>
+</scroll-view>

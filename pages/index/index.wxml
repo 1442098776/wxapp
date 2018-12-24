@@ -1,0 +1,98 @@
+<navigator class='container search' url='/pages/search/search' open-type='navigate'>
+  搜索你想要卷发棒？
+  <!-- <icon type='search' size='18' class='block'></icon> -->
+  <image src='/static/images/search.png' />
+</navigator>
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgb(255,255,255)" indicator-active-color="#F23135">
+  <block wx:for="{{count.solide}}" wx:for-item="item" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class='container section'>
+  <view class='container flex section1'>
+    <view class='flex'>
+      <view>
+        <image src='/static/images/heart.png' mode="widthFix" />
+      </view>
+      <view>自营电商</view>
+    </view>
+    <view class='flex'>
+      <view>
+        <image src='/static/images/heart.png' mode="widthFix" />
+      </view>
+      <view>正品保证</view>
+    </view>
+    <view class='flex'>
+      <view>
+        <image src='/static/images/heart.png' mode="widthFix" />
+      </view>
+      <view>七天退换</view>
+    </view>
+    <view class='flex'>
+      <view>
+        <image src='/static/images/heart.png' mode="widthFix" />
+      </view>
+      <view>全场包邮</view>
+    </view>
+  </view>
+  <view class='section2 container flex'>
+    <block wx:for="{{sort}}" wx:for-item="item" wx:key="{{item.id}}">
+      <navigator url='{{item.path}}' open-type='navigate' catchtap='navigator{{index}}'>
+        <view>
+          <image src='{{item.url}}' mode="widthFix" />
+        </view>
+        <view class='text-center'>{{item.text}}</view>
+      </navigator>
+    </block>
+  </view>
+</view>
+<view class='section3'>
+  <view class='title text-center container'>
+    <image src='/static/images/bg.png' mode="widthFix" />
+    <text>每日拼团</text>
+  </view>
+  <scroll-view scroll-x="true" class='touchScroll'>
+    <view class='touch container'>
+      <block wx:for="{{count.pt}}" wx:for-item="item" wx:key="{{item.id}}">
+        <navigator url='/pages/productDetails/productDetails?id={{item.goods_id}}&state=1' open-type='navigate'>
+          <image src="{{item.pic}}" />
+          <view class='text'>
+            <view class='name'>{{item.goods_name}}</view>
+            <view>
+              <text class='price'>拼团价:￥{{item.price}}</text>
+              <text class='price1'>原价:￥{{item.yprice}}</text>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view class='container imgUrl'>
+  <image src='{{count.pintuan}}' />
+</view>
+<view class='section4 container'>
+  <view class='title text-center container'>
+    <image src='/static/images/bg.png' mode="widthFix" />
+    <text>精品推荐</text>
+  </view>
+  <view class='flex boutique'>
+    <block wx:for="{{count.goods}}" wx:for-item="item" wx:key="{{item.id}}">
+      <navigator url='/pages/productDetails/productDetails?id={{item.id}}' open-type='navigate'>
+        <view class='img'> 
+          <image src='{{item.pic0}}' />
+        </view>
+        <view class='name'>{{item.name}}</view>
+        <view class='flex bottom'>
+          <view class='price'><view><text>￥</text>{{item.price}}</view></view>
+          <view class='num flex'>
+            <view>+{{item.debriss}}碎片</view>
+            <view>销量:{{item.saleses}}</view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

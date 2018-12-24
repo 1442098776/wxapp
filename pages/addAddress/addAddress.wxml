@@ -1,0 +1,46 @@
+<view class='section' style='height:{{height}}px;'>
+  <view class='null'></view>
+  <form bindsubmit="submit" class='form flex'>
+    <view class='contenCount' style='width:{{width}}px'>
+      <view class='flex count'>
+        <text class='flex'>收货人</text>
+        <view>
+          <input type='text' name="id" value='{{addressList.id}}' class='hidden'/>
+          <input type='text' placeholder='名字' name="user" value="{{addressList.user}}" placeholder-class="placeholder" bindblur="inputName" />
+        </view>
+      </view>
+      <view class='flex count'>
+        <text class='flex'>电话号码</text>
+        <view>
+          <input type='number' placeholder='电话' name="phone" value='{{addressList.phone}}' maxlength='11' placeholder-class="placeholder" bindblur="inputTel" />
+        </view>
+      </view>
+      <view class='flex count'>
+        <text class='flex'>所在地区</text>
+        <view class='{{active?"active":"location"}}' catchtap='active'>
+          <picker bindchange='changeRegin' mode="region" value='{{addressList.ads}}' name="ads">
+            <view>{{addressList.ads[0]}} {{addressList.ads[1]}} {{addressList.ads[2]}}</view>
+          </picker>
+          <image class='rightImg' src='/static/images/right.png' />
+        </view>
+      </view>
+      <view class='flex count'>
+        <text class='flex'>详细地址</text>
+        <view>
+          <input type='text' name="address" placeholder='详细地址' value='{{addressList.address}}' placeholder-class="placeholder" bindblur="inputAddress" />
+        </view>
+      </view>
+      <view class='flex count'>
+        <text class='flex'>设为默认</text>
+        <view class='setAddress'>
+          <view catchtap='setAddress'>
+            <image wx:if="{{addressList.status==0}}" src='/static/images/circle.png' />
+            <image wx:else src='/static/images/circle1.png' />
+          </view>
+        </view>
+      </view>
+    </view>
+    <button form-type='submit' class='add text-center' wx:if="{{id!=''}}">保存</button>
+    <button form-type='submit' class='add text-center' wx:else>确认添加</button>
+  </form>
+</view>

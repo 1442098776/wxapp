@@ -1,0 +1,41 @@
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+scroll-view{
+  background: #fff;
+}
+.section>navigator{
+  width: 50%;
+  margin-top: 40rpx;
+}
+.section>navigator:nth-of-type(odd){
+  padding-left: 30rpx;
+  padding-right: 15rpx;
+}
+.section>navigator:nth-of-type(even){
+  padding-left: 15rpx;
+  padding-right: 30rpx;
+}
+.section image{
+  width: 100%;
+  height: 330rpx;
+}
+.section .name{
+  color: #353535;
+  font-size: 24rpx;
+  margin:25rpx 0 20rpx;   
+}
+.section .price>view{
+  color: #FE4543;
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}
+.section .price>text{
+  color: #666666;
+  font-size: 16rpx;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration:line-through;
+}

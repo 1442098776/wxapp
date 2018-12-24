@@ -1,0 +1,76 @@
+.section{
+  height: calc(100% - 20rpx);
+  background: #fff;
+  width: 100%;
+  overflow: hidden;
+  font-size: 24rpx;
+}
+.section .null{
+  height: 20rpx;
+  width: 100%;
+  background: #fafafa;
+}
+.form{
+  width: 100%;
+}
+.contenCount{
+  position: relative;
+  width: 100%;
+}
+.contenCount>.count:not(:last-of-type){
+  border-bottom: 1rpx solid #EAEAEA;
+}
+.contenCount>view{
+  padding:0 30rpx;
+  height: 88rpx;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+.contenCount .count>text{
+  width: 34%;
+}
+.contenCount .count:not(:last-of-type)>view{
+  width: 66%;
+  position: relative;
+}
+.contenCount .count:last-of-type{
+  justify-content: space-between;
+}
+.contenCount .setAddress image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.contenCount .rightImg{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  width: 16rpx;
+  height: 28rpx;
+}
+.location{
+  color: #999999;
+}
+.active{
+  color: #353535;
+}
+
+.add{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  font-size: 36rpx;
+  background: #FE4543;
+  border-radius: 0;
+}

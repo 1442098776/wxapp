@@ -1,0 +1,119 @@
+<view class="section container">
+<navigator wx:if="{{list.address==0}}" url='/pages/address/address' open-type='navigate' class='flex address'>
+    <text>地址选择</text>
+    <view>
+      <image src='/static/images/right.png' />
+    </view>
+  </navigator>
+  <view class='flex' wx:else="{{address}}" class='address0'>
+    <view class='flex'>
+      <view>收货人： {{list.address.user}}</view>
+      <text>{{list.address.tel}}</text>
+    </view>
+    <navigator url='/pages/address/address' open-type='navigate' class='flex'>
+      <text>{{list.address.address}}</text>
+      <view class='img'>
+        <image src='/static/images/right.png' />
+      </view>
+    </navigator>
+  </view>
+  
+</view>
+<block wx:for="{{list.goods}}" wx:for-item="item" wx:for-index="index" wx:key="{{item.id}}">
+  <view class='section1'>
+    <view data-id="{{item.id}}" class='count flex'>
+      <view class='left'>
+        <image src="{{item.pic}}" />
+      </view>
+      <view class='right'>
+        <view class='flex'>
+          <text>{{item.name}}</text>
+          <text>￥{{item.price}}</text>
+        </view>
+        <view>
+          {{item.descr}}
+        </view>
+      </view>
+    </view>
+    <view class='count1'>
+      <view class='quantity flex'>
+        <text>数量</text>
+        <!-- <view wx:if="{{btnNum}}">{{item.num}}</view> -->
+        <view class='flex'>
+          <button value="-" disabled='{{disabled}}' class='subtract' catchtap='subtract' data-index="{{index}}">-</button>
+          <text class='num text-center'>{{item.num}}</text>
+          <button value="+" class='add' catchtap='add' data-index="{{index}}">+</button>
+        </view>
+      </view>
+      <view class='color flex'>
+        <text>颜色</text>
+        <view class='flex'>
+          <view wx:if="{{item.color!=null}}" wx:key="{{item}}" wx:for="{{item.color}}" wx:for-item="item1" wx:for-index="index1" data-index0="{{index}}" data-index="{{index1}}" style='background:{{item1}}' class='{{colorIndex==index1?"active":""}}' catchtap='colorCheck'></view>
+        </view>
+      </view>
+      <view class='price flex'>
+        <text>金额</text>
+        <view>￥{{item.num*item.price}}</view>
+      </view>
+      <view class='debris flex'>
+        <text>碎片抵扣</text>
+        <view>￥{{item.suipian}}</view>
+      </view>
+      <view class='ticket flex'>
+        <text>优惠券</text>
+        <view>￥{{item.youhuiquan}}</view>
+      </view>
+      <view class='freight flex'>
+        <text>运费</text>
+        <view>￥{{item.yunfei}}</view>
+      </view>
+    </view>
+  </view>
+</block>
+<view class='total flex'>
+  <view>共
+    <text>{{totalNum}}</text>件商品
+    <text> </text> 合计：
+    <text>￥{{totalMoney}}</text>
+  </view>
+</view>
+<view class='flex bottomList'>
+  <view class='flex'>
+    <view class='flex'>
+      <image src='/static/images/heart.png' />
+    </view>
+    <text>自营电商</text>
+  </view>
+  <view class='flex'>
+    <view class='flex'>
+      <image src='/static/images/heart.png' />
+    </view>
+    <text>正品保证</text>
+  </view>
+  <view class='flex'>
+    <view class='flex'>
+      <image src='/static/images/heart.png' />
+    </view>
+    <text>七天退换</text>
+  </view>
+  <view class='flex'>
+    <view class='flex'>
+      <image src='/static/images/heart.png' />
+    </view>
+    <text>全场包邮</text>
+  </view>
+</view>
+<view class='footer flex'>
+  <view class='flex'>
+    <view class='flex'>
+      <image src='/static/images/bag.png' />
+    </view>
+    <view class='flex'>
+      <view>应付金额</view>
+      <view>￥{{totalMoney}}</view>
+    </view>
+  </view>
+  <view class='flex text-center' data-shareUser="{{shareUser}}" catchtap='startPay'>
+  立即付款
+  </view>
+</view>

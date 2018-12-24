@@ -1,0 +1,167 @@
+<view class='popup' wx:if="{{popup}}">
+  <view>
+    <view class='container top'>
+      <view class='close' catchtap='close'>
+        <image src='/static/images/close.png' />
+      </view>
+      <image src='/static/images/signIn.png' />
+    </view>
+    <view class='contenCount'>
+      <view class='middle'>
+        <view>
+          <image src='/static/images/integral.png' />
+        </view>
+        <view class='text-center'>{{signIn.msg}}</view>
+      </view>
+      <view class='bottom flex'>
+        <block wx:for="{{week}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+          <view class='{{index+1==day?"active":""}}{{index+1<day?"past":""}}'>
+            <view class='text-center'>{{item}}</view>
+            <view wx:if="{{index+1==day}}">
+              <image src='/static/images/face.png' class='img' />
+            </view>
+            <view wx:else>
+              <view class='nullBorder'></view>
+              <view class='nullBorder'></view>
+              <view class='nullBorder'></view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <navigator url='/pages/lottery/lottery' open-type='navigate' class='text-center'>前往抽奖</navigator>
+      <view class='text-center integral'>我的积分:{{signIn.zongjifen}}</view>
+    </view>
+  </view>
+</view>
+<view class='burseCount' hidden='{{burseCount}}'>
+  <view>
+      <view class='flex burseSection flex-between'>
+        <text>我的钱包</text>
+        <image src='/static/images/close.png' catchtap='burseClose' />
+      </view>
+      <view class='burseSection1'>
+        <view class='title'>如何赚取佣金</view>
+        <view class='content'>通过分享给好友，在好友成交后，可获得丰厚的现金奖励。</view>
+        <view class='title'>佣金提现过程</view>
+        <view class='content'>1、提现金额大于20元。</view>
+        <view class='content'>2、每月1日至20日为申请提现日，21日至25日打款日。</view>
+        <view class='content'>3、提出申请，需人工审核通过后，到打款日方可打款。</view>
+      </view>
+  </view>
+</view>
+<view class='header container'>
+  <view class='polygon' wx:if="{{hasUserInfo}}">
+    <image src='/static/images/polygon.png' wx:if="{{status!==1}}" catchtap='popupShow' />
+    <image src='/static/images/polygon1.png' wx:else />
+  </view>
+  <view>
+    <view wx:if="{{!hasUserInfo && canIUse}}">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        <view class='img'>
+          <image src="/static/images/userInfo.png" />
+        </view>
+        <view class='getUserInfo text-center'>
+          点击登录
+        </view>
+      </button>
+      <view wx:else>请升级微信版本</view>
+    </view>
+    <view wx:else>
+      <view class='img'>
+        <image src='{{userInfo.avatarUrl}}' />
+      </view>
+      <view class='text-center'>{{userInfo.username}}</view>
+    </view>
+    <!-- <view class='flex fans'>
+      <view class='flex'>
+        <image src="/static/images/1.png" />
+        <text>{{list.fans}}</text>
+      </view>
+      <view class='flex'>
+        <image src="/static/images/2.png" />
+        <text>{{list.fans1}}</text>
+      </view>
+    </view> -->
+  </view>
+</view>
+<view class='section'>
+  <navigator url='/pages/orderManagement/orderManagement?state=7&sortIndex=0' open-type='navigate' class='flex allOrder'>
+    <text>我的订单</text>
+    <view>
+      <image src='/static/images/right.png' />
+    </view>
+  </navigator>
+  <view class='flex order'>
+    <block wx:for="{{list.arr}}" wx:for-item="item" wx:for-index="index" wx:key="item.id">
+      <navigator url='{{url[index]}}?state={{item.state}}&sortIndex={{item.sortIndex}}' open-type='navigate'>
+        <view class='img'>
+          <text wx:if="{{hasUserInfo}}" class='num block text-center'>{{num[index]}}</text>
+          <image src='{{item.img}}' />
+        </view>
+        <view class='text-center'>{{item.name}}</view>
+      </navigator>
+    </block>
+  </view>
+</view>
+<view class='section1'>
+  <view class='flex'>
+    <text>我的钱包</text>
+    <view catchtap='bursePopup'>
+      <image src='/static/images/problem.png' />
+    </view>
+  </view>
+  <view catchtap='Withdraw'>
+    <view class='text-center'>￥{{money}}</view>
+    <view class='text-center'>可提现金额</view>
+  </view>
+</view>
+<view class='section2'>
+  <view class='flex'>
+    <view class='count'>
+      <navigator url='/pages/address/address' open-type='navigate'>
+        <view>
+          <image src="/static/images/8.png" />
+        </view>
+        <view class='text-center'>地址管理</view>
+      </navigator>
+    </view>
+    <view class='count'>
+      <button open-type="contact">
+        <view>
+          <image src="/static/images/9.png" />
+        </view>
+        <view class='text-center'>客服管理</view>
+      </button>
+    </view>
+    <view class='count'>
+      <navigator url='/pages/faq/faq' open-type='navigate'>
+        <view>
+          <image src="/static/images/10.png" />
+        </view>
+        <view class='text-center'>
+          常见问题
+        </view>
+      </navigator>
+    </view>
+    <view class='count'>
+      <navigator url='/pages/gba/gba' open-type='navigate'>
+        <view>
+          <image src="/static/images/11.png" />
+        </view>
+        <view class='text-center'>
+          购物攻略
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='flex'>
+    <view class='count'>
+      <navigator url='/pages/notice/notice' open-type='navigate'>
+        <view>
+          <image src="/static/images/12.png" />
+        </view>
+        <view class='text-center'>系统公告</view>
+      </navigator>
+    </view>
+  </view>
+</view>

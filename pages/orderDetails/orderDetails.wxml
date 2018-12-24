@@ -1,0 +1,123 @@
+<view class="header">
+  <view wx:if="{{state==1}}" class='flex'>
+    <view class='left flex'>
+      <text>待付款</text>
+      <text class='time'>待付款剩余有效时间: {{orderTime}}</text>
+    </view>
+    <view class='right'>
+      <image src='/static/images/state2.png' />
+    </view>
+  </view>
+  <view wx:elif="{{state==2 || state==3}}" class='flex'>
+    <view class='left flex'>
+      <text>买家已付款</text>
+      <text wx:if="{{state==3}}">等待商家发货</text>
+      <text wx:elif="{{state==2}}">等待成团发货</text>
+    </view>
+    <view class='right'>
+      <image src='/static/images/state1.png' />
+    </view>
+  </view>
+  <view wx:elif="{{state==4}}" class='flex'>
+    <view class='left flex'>
+      <text>商家已发货</text>
+      <text>请耐心等待收货</text>
+    </view>
+    <view class='right'>
+      <image src='/static/images/state3.png' />
+    </view>
+  </view>
+  <view wx:elif="{{state==5}}" class='flex'>
+    <view class='left flex'>
+      <text>已签收</text>
+      <text>快去给宝贝一个评价吧</text>
+    </view>
+    <view class='right'>
+      <image src='/static/images/state3.png' />
+    </view>
+  </view>
+</view>
+<navigator url='/pages/logistics/logistics?orderNumber={{orderNumber}}&oddNumber={{list.wuliu.LogisticCode}}' open-type='navigate' class='flex logistics' wx:if="{{state==4 || state==5 || state==8}}">
+  <view class='flex'>
+    <image src='/static/images/logistics.png' />
+  </view>
+  <view class='flex'>
+    <view>{{list.wuliu.Traces[0].AcceptStation}}</view>
+    <view class='time'>{{list.wuliu.Traces[0].AcceptTime}}</view>
+  </view>
+  <view class='flex'>
+    <image src='/static/images/right.png' />
+  </view>
+</navigator>
+<view class='section flex'>
+  <view class='flex left'>
+    <image src='/static/images/location.png' />
+  </view>
+  <view class='right'>
+    <view class='flex flex-between'>
+      <text>收货人：{{list.user}}</text>
+      <text>{{list.tel}}</text>
+    </view>
+    <view>
+      收货地址：{{list.address}}
+    </view>
+  </view>
+</view>
+<view class='section1'>
+  <block wx:for="{{list.goods}}" wx:for-item="item" wx:key="{{item.id}}">
+    <view>
+      <view class='flex top'>
+        <view class='left'>
+          <image src="{{item.pic}}" />
+        </view>
+        <view class='right'>
+          <view class='flex flex-between'>
+            <text>{{item.goods_name}}</text>
+            <text>{{item.price}}</text>
+          </view>
+          <view class='flex flex-between'>
+            <text>{{item.descr}}</text>
+            <text>×{{item.goods_num}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='middle'>
+        <view class='flex flex-between'>
+          <text>商品总价</text>
+          <text>￥{{item.price*item.goods_num}}</text>
+        </view>
+        <view class='flex flex-between'>
+          <text>碎片抵扣</text>
+          <text>￥{{item.debrises}}</text>
+        </view>
+        <view class='flex flex-between'>
+          <text>优惠券</text>
+          <text>￥{{item.coupons}}</text>
+        </view>
+        <view class='flex flex-between'>
+          <text>运费</text>
+          <text>￥{{item.yunfei}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='total'>
+    <view class='flex flex-between'>
+      <text>订单总价</text>
+      <text>￥{{list.tmoeny}}</text>
+    </view>
+    <view class='flex flex-between'>
+      <text>实付款</text>
+      <text>￥{{list.tmoeny}}</text>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view>订单号：{{orderNumber}}</view>
+    <view>下单时间:{{list.time}}</view>
+    <view wx:if="{{state!=1}}">付款时间:{{list.paytime}}</view>
+    <view wx:if="{{state==4 || state==5}}">发货时间:{{list.fhtime}}</view>
+  </view>
+</view>
+<view class='component'>
+  <orderBtn state="{{state}}" show="{{show}}" orderNumber="{{orderNumber}}" tot="{{list.tmoeny}}" bindcancel="cancel" bindaffirm="affirm" bindremove="cancel" oddNumber="{{list.wuliu.OrderCode}}" />
+</view>

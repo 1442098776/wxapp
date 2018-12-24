@@ -1,0 +1,78 @@
+page{
+  background: #fff;
+}
+.section{
+  margin: 30rpx 0 30rpx 0;
+  background: #FAFAFA;
+  padding:15rpx 30rpx;
+}
+.section .left image{
+  width: 170rpx;
+  height: 170rpx;
+}
+.section .right{
+  padding:20rpx 0 0 20rpx;
+  color: #666666;
+  font-size: 22rpx;
+}
+.section .right>view:first-of-type{
+  font-size: 34rpx;
+  color: #353535;
+  margin-bottom: 30rpx;
+}
+.section .right>view:nth-of-type(2){
+  margin-bottom: 18rpx;
+}
+.section1{
+  padding:0 30rpx 56rpx 30rpx;
+}
+.section1>view:first-of-type{
+  color: #353535;
+  font-size: 30rpx;
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #EAEAEA;
+  margin-bottom: 38rpx;
+}
+.section1 .address{
+  color: #666666;
+  font-size: 28rpx;
+  margin-bottom: 17rpx;
+}
+.section1 .time{
+  color: #999999;
+  font-size:  22rpx;
+}
+.message{
+  position: relative;
+  overflow: hidden;
+}
+.message>view{
+  margin-bottom: 60rpx;
+  position: relative;
+  margin-left: 75rpx;
+}
+.section1 .circle{
+  position: absolute;
+  width: 21rpx;
+  height: 21rpx;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: #CCCCCC;
+  top: 0;
+  left:-45rpx;
+}
+.section1 .solie{
+  position: absolute;
+  top: -120rpx;
+  left: -38rpx;
+  width:1rpx;
+  background: #EAEAEA;
+  height:100%;
+}
+.message>view:nth-of-type(2) .circle{
+  background: #FE4543;
+  box-shadow:0 0 6rpx 6rpx #FEA9A9;
+}

@@ -1,0 +1,242 @@
+.section {
+  background: #fff;
+}
+
+.section .address0 {
+  padding: 54rpx 30rpx 51rpx;
+  color: #353535;
+}
+
+.section .address0>view, .section .address0 navigator {
+  justify-content: space-between;
+  align-items: center;
+}
+.section .address0 navigator text{
+  display: block;
+}
+
+.section .address0 navigator {
+  margin-top: 30rpx;
+}
+
+.section .address0>view>view {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.section .address0 text {
+  font-size: 24rpx !important;
+}
+
+.section .address {
+  justify-content: space-between;
+  align-items: center;
+  padding: 54rpx 30rpx;
+  color: #353535;
+  font-size: 34rpx;
+}
+
+.section .address view, .section .address0 .img {
+  width: 16rpx;
+  height: 28rpx;
+}
+
+.section .address view image, .section .address0 .img>image {
+  width: 100%;
+  height: 100%;
+}
+
+.section1>.count {
+  padding: 15rpx 30rpx;
+}
+
+.section1>.count .left {
+  width: 23%;
+}
+
+.section1>.count .left image {
+  width: 170rpx;
+  height: 170rpx;
+}
+
+.section1>.count .right {
+  width: 77%;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+}
+
+.section1>.count .right>view:first-of-type {
+  justify-content: space-between;
+  font-size: 34rpx;
+  margin-bottom: 48rpx;
+}
+
+.section1>.count .right>view:first-of-type>text:first-of-type {
+  color: #353535;
+  font-family: PingFang-SC-Medium;
+}
+
+.section1>.count .right>view:first-of-type>text:last-of-type {
+  color: #fe4543;
+  font-weight: bold;
+}
+
+.section1>.count .right>view:last-of-type {
+  color: #666;
+  font-size: 22rpx;
+  font-family: PingFang-SC-Medium;
+}
+
+.section1>.count1 {
+  padding: 0 30rpx 24rpx;
+  background: #fff;
+  color: #353535;
+}
+
+.section1>.count1>view {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.count1 .quantity {
+  padding: 30rpx 0;
+}
+.count1 .color{
+  padding-bottom: 36rpx;
+}
+.color .active{
+  border:2rpx solid #FE4543;
+}
+.count1 .price,.count1 .ticket{
+  padding:40rpx 0;
+}
+.count1 .freight{
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid #EAEAEA;
+}
+
+.quantity .num {
+  display: block;
+  width: 42rpx;
+  margin-left: 21rpx;
+  margin-right: 21rpx;
+}
+
+.quantity .subtract, .quantity .add {
+  width: 42rpx;
+  height: 42rpx;
+  line-height: 35rpx;
+  border: 2rpx solid #666;
+  color: #666;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  padding: 0;
+  font-size: 30rpx;
+}
+
+.count1 .color {
+  border-bottom: 2rpx solid #eaeaea;
+}
+
+.count1 .color>view>view {
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.count1 .color>view>view:nth-of-type(2) {
+  margin-left: 21rpx;
+  margin-right: 21rpx;
+}
+
+.count1 .price>view {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.total{
+  flex-direction: row-reverse;
+  background: #fff;
+  color: #353535;
+  font-size: 24rpx;
+  padding:0 30rpx;
+}
+.total text{
+  color: #FE4543;
+}
+.total text:last-of-type{
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.total text:nth-of-type(2){
+  display:inline-block;
+  width: 20rpx;
+}
+.bottomList{
+  padding:168rpx 0 18rpx 30rpx;
+  background: #fff;
+  margin-bottom: 88rpx;
+}
+.bottomList>view{
+  width: 25%;
+  color: #666666;
+  font-size: 24rpx;
+}
+.bottomList>view>view{
+  width: 24rpx;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 11rpx;
+}
+.bottomList>view>view>image{
+  width: 100%;
+  height: 22rpx;
+}
+
+.footer{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 88rpx;
+}
+.footer>view{
+  flex: 1;
+}
+.footer>view:first-of-type{
+  background: #FAFAFA;
+  color: #666666;
+  font-size: 24rpx;
+}
+.footer>view:first-of-type>view:first-of-type{
+  width: 44%;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.footer>view:first-of-type>view:first-of-type image{
+  width: 62rpx;
+  height: 65rpx;
+}
+.footer>view:first-of-type>view:last-of-type{
+  width: 56%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  padding-right: 60rpx;
+}
+.footer>view:last-of-type{
+  background: #FE4543;
+  color: #fff;
+  font-family: PingFang-SC-Medium;
+  font-size: 36rpx;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,6 @@
+<view class="section container">
+<view><image src='/static/images/search.png' /></view>
+<input type='search' value='{{value}}' bindinput="search" placeholder='请输入商品名称' />
+<view catchtap='clear'>清空</view>
+</view>
+<navigator url='/pages/productDetails/productDetails?id={{item.pid}}' open-type='navigate' wx:for="{{list}}" wx:for-item="item" wx:key="{{index}}" data-id="id{{item.pid}}" class='list'>{{item.pname}}</navigator>

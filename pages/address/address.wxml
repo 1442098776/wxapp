@@ -1,0 +1,50 @@
+<view wx:if="{{addressList.length==0}}">
+  <null></null>
+</view>
+<view wx:else>
+  <bolck wx:for="{{addressList}}" wx:for-item="item" wx:for-index="index" wx:key="item.id">
+    <view class='address'>
+      <view class='flex'>
+        <view>{{item.user}}</view>
+        <view>{{item.phone}}</view>
+      </view>
+      <view>
+        {{item.province}}{{item.city}}{{item.huo}}{{item.address}}
+      </view>
+      <view class='flex'>
+        <view class='flex default' catchtap='setAddress' data-id="{{item.id}}" data-index="{{index}}">
+          <view>
+            <image wx:if="{{item.status==1}}" src='/static/images/circle1.png' />
+            <image wx:else src='/static/images/circle.png' />
+          </view>
+          <view>设为默认</view>
+        </view>
+        <view class='flex'>
+          <view data-index="{{index}}" data-id="{{item.id}}" catchtap='remove'>删除</view>
+          <navigator url="/pages/addAddress/addAddress?id={{item.id}}">编辑</navigator>
+        </view>
+      </view>
+    </view>
+  </bolck>
+</view>
+<view class='null'></view>
+<view class='footer text-center' catchtap='Address'>
+  添加地址
+</view>
+<view wx:hidden='{{hidden}}' class='{{hidden?"hidden":""}} popup'>
+  <view>
+    <view class='flex' catchtap='addAddress1'>
+      <text class='flex'>使用微信地址</text>
+      <view>
+        <image src='/static/images/right.png' />
+      </view>
+    </view>
+    <view class='flex' catchtap='addAddress2'>
+      <text class='flex'>手动添加地址</text>
+      <view>
+        <image src='/static/images/right.png' />
+      </view>
+    </view>
+    <view class='text-center' catchtap='cancel'>取消</view>
+  </view>
+</view>

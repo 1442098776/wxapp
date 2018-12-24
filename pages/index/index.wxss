@@ -1,0 +1,249 @@
+.search {
+  width: 690rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  margin: 15rpx auto 15rpx auto;
+  border-radius: 34px;
+  -webkit-border-radius: 34px;
+  -moz-border-radius: 34px;
+  -ms-border-radius: 34px;
+  -o-border-radius: 34px;
+  background: #fff;
+  color: #bbb;
+  padding-left: 71rpx;
+  font-size: 30rpx;
+}
+
+.search>image {
+  position: absolute;
+  top: 15rpx;
+  left: 18rpx;
+  margin-bottom: 20rpx;
+  width: 35rpx;
+  height: 37rpx;
+}
+
+/* .search>icon{
+  position:absolute;
+  top: 15rpx;
+  left: 18rpx;
+  margin-bottom: 20rpx;
+} */
+
+swiper {
+  height: 400rpx;
+}
+
+swiper image {
+  width: 100%;
+  height: 400rpx !important;
+}
+
+.section {
+  width: 100%;
+  background: #fff;
+}
+
+.section1 {
+  margin: 0 30rpx;
+  width: calc(100% - 60rpx);
+  height: 63rpx;
+  line-height: 63rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.section1>view {
+  width: 25%;
+  color: #666 !important;
+  font-size: 24rpx !important;
+  padding: 0 15rpx;
+  font-weight: 500;
+}
+
+.section1>view>view:first-of-type {
+  width: 24rpx;
+  margin-right: 11rpx;
+}
+
+.section2 {
+  padding: 30rpx 0 40rpx;
+  font-size: 30rpx;
+  color: #353535;
+  margin-bottom: 20rpx;
+}
+
+.section2>navigator {
+  width: 25%;
+  font-weight: 500;
+}
+
+.section2>navigator>view:first-of-type {
+  width: 98rpx;
+  margin: 0 auto;
+}
+
+.section3 {
+  padding: 40rpx 0 73rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  width: 460rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  margin: 0 auto 53rpx auto;
+  color: #fe4543;
+  font-family: PingFang-SC-Medium !important;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+
+.title>text {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.touchScroll {
+  width: 100%;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+.touch {
+  display: flex;
+}
+
+.touch>navigator {
+  width: 240rpx;
+  margin-right: 20rpx;
+}
+
+.touch image {
+  width: 240rpx;
+  height: 240rpx;
+  display: block;
+}
+
+.touch .text {
+  margin: 0;
+  width: 100%;
+  background: #ffecec;
+  padding: 7rpx 0 9rpx 5rpx;
+  font-weight: 500;
+}
+
+.touch .text>view:nth-of-type(2) {
+  line-height: 18rpx;
+}
+
+.touch .name {
+  font-size: 16rpx !important;
+  color: #353535;
+}
+
+.touch .price {
+  color: #fe4543;
+  font-size: 18rpx !important;
+}
+
+.touch .price1 {
+  color: #666;
+  font-size: 12rpx !important;
+  margin-left: 14rpx;
+  text-decoration: line-through;
+}
+
+.imgUrl {
+  width: 100%;
+  height: 270rpx;
+  margin-bottom: 20rpx;
+}
+
+.imgUrl>image {
+  width: 100%;
+  height: 100%;
+}
+
+.section4 {
+  padding: 50rpx 30rpx 23rpx;
+  background: #fff;
+}
+
+.section4 .boutique>navigator {
+  width: 50%;
+  margin-bottom: 60rpx;
+}
+
+.section4 .boutique>navigator:nth-of-type(odd) {
+  padding-right: 15rpx;
+}
+
+.section4 .boutique>navigator:nth-of-type(even) {
+  padding-left: 15rpx;
+}
+
+.section4 .boutique .img {
+  height: 330rpx;
+}
+
+.section4 .boutique .img>image {
+  height: 100%;
+}
+
+.section4 .boutique .name {
+  color: #353535;
+  font-size: 30rpx;
+  margin: 27rpx 0 30rpx;
+  line-height: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* .section4 .boutique .bottom>view {
+  flex: 1;
+} */
+
+.section4 .boutique .bottom>.price {
+  color: #fe4543;
+  font-size: 60rpx;
+  line-height: 45rpx;
+  font-family: ArialMT;
+}
+
+.section4 .boutique .bottom>.price text {
+  font-size: 40rpx;
+  font-weight: bold;
+  font-family:PingFang-SC-Bold;
+}
+
+.section4 .boutique .num {
+  font-size: 16rpx;
+  padding-left: 15rpx;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.section4 .boutique .num>view:first-of-type {
+  color: #fe4543;
+  margin-bottom: 11rpx;
+}
+
+.section4 .boutique .num>view:last-of-type {
+  color: #666;
+}

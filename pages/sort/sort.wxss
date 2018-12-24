@@ -1,0 +1,130 @@
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fafafa;
+  color: #353535;
+  font-size: 35rpx;
+  width: 27%;
+  z-index: 10;
+  height: 100%;
+  font-weight: 500;
+}
+
+.section .active {
+  background: #fff;
+  border-left: 6rpx solid #fe4543;
+  color: #fe4543 !important;
+}
+
+.contentCount {
+  flex-direction: row-reverse;
+}
+
+.section>view {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: justify;
+  text-align-last: justify;
+  padding: 0 30rpx;
+  letter-spacing: -2rpx;
+  font-weight:500;
+}
+
+/* .section>view:last-of-type{
+  letter-spacing:-2rpx;
+} */
+
+.section1 {
+  background: #fff;
+  width: 73%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  padding: 20rpx 30rpx 0 35rpx;
+}
+
+.section1 .titleImg {
+  height: 200rpx;
+  margin-bottom: 40rpx;
+}
+
+.section1 .titleImg>image {
+  display: block;
+  height: 100%;
+}
+
+.section1 .boutique>navigator {
+  width: 50%;
+  margin-bottom: 40rpx;
+}
+
+.section1 .boutique>navigator:nth-of-type(odd) {
+  padding-right: 10rpx;
+}
+
+.section1 .boutique>navigator:nth-of-type(even) {
+  padding-left: 10rpx;
+}
+
+.section1 .boutique .img {
+  height: 232rpx;
+}
+
+.section1 .boutique .img>image {
+  width: 100%;
+  height: 100%;
+}
+
+.section1 .boutique .name {
+  color: #353535;
+  font-size: 22rpx;
+  margin: 17rpx 0 20rpx;
+  line-height: 22rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight:500;
+}
+
+/* .section1 .boutique .bottom>view {
+  flex: 1;
+} */
+
+.section1 .boutique .bottom>.price {
+  color: #fe4543;
+  font-size: 42rpx;
+  font-family: ArialMT;
+  line-height: 30rpx;
+}
+
+.section1 .boutique .bottom>.price text {
+  font-size: 28rpx;
+  font-weight: bold;
+  font-family: PingFang SC;
+}
+
+.section1 .boutique .num {
+  font-size: 12rpx;
+  padding-left: 15rpx;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.section1 .boutique .num>view:first-of-type {
+  color: #fe4543;
+  margin-bottom: 3rpx;
+}
+
+.section1 .boutique .num>view:last-of-type {
+  color: #666;
+}

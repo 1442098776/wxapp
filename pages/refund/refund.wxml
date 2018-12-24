@@ -1,0 +1,110 @@
+<view class='section'>
+  <block wx:for="{{list.goods}}" wx:for-item="item" wx:key="{{item.goods_id}}">
+    <view class='flex'>
+      <view class='left'>
+        <image src="{{item.pic}}" />
+      </view>
+      <view class='right'>
+        <view class='flex flex-between'>
+          <view>{{item.goods_name}}</view>
+          <text>￥{{item.price}}</text>
+        </view>
+        <view class='flex flex-between'>
+          <text>{{item.descr}}</text>
+          <text>×{{item.goods_num}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='section1 bgwhite' wx:if="{{list.status==0}}">
+  <view class='flex count'>
+    <view>退款原因</view>
+    <view class='flex container'>
+      <view>
+        <picker bindchange='check' mode="selector" value='{{list.aa}}' range='{{list.aa}}'>
+          <view>{{list.aa[tapIndex]}}</view>
+        </picker>
+      </view>
+      <image src='/static/images/right.png' />
+    </view>
+  </view>
+  <view class='flex count'>
+    <view>退款金额</view>
+    <view>
+      <view>￥{{list.order_money}}</view>
+    </view>
+  </view>
+  <view>
+    <view>退款说明</view>
+    <view>
+      <textarea placeholder='宝贝满足您的期待吗？留下您的足迹吧!' value='{{textareaValue}}' bindinput="inputValue"></textarea>
+    </view>
+  </view>
+</view>
+<view class='section2 bgwhite' wx:if="{{list.status!=0}}">
+  <view class='goodsText' wx:if="{{list.status==1 || list.status==2 || list.status==3}}">
+    <view class='flex count1 solid'>
+      <view>退款原因</view>
+      <view class='flex'>
+        <view>{{list.why}}</view>
+      </view>
+    </view>
+    <view class='flex count1'>
+      <view>退款金额</view>
+      <view>
+        <view>￥{{list.order_money}}</view>
+      </view>
+    </view>
+    <view class='flex count1'>
+      <view>申请时间</view>
+      <view>
+        <view>{{list.time}}</view>
+      </view>
+    </view>
+  </view>
+  <view style='height:20rpx;width:200%;background:#fafafa;margin-left:-40rpx;'></view>
+  <view class='await' wx:if="{{list.status==1 || list.status==3}}">
+    <view class='content' wx:if="{{list.status==1}}">
+      <view>您已发起退款申请，请耐心等待商家处理...</view>
+      <view>
+        <text class='circle flex'></text>等待商家同意后，系统将退款给您
+      </view>
+      <view>
+        <text class='circle flex'></text>如果商家拒绝退款，你敢可以修改退款申请再次申请
+      </view>
+    </view>
+    <view class='content' wx:if="{{list.status==3}}">
+    <view>卖家拒绝了你的退款申请</view>
+    <view>亲爱的客户，您的这种情况不在退款的范围呢。亲爱的客户，您的
+这种情况不在退款的范围呢，</view>
+    </view>
+    <view class='flex'>
+      <view catchtap='change'>修改申请</view>
+      <!-- <view catchtap='cancel'>取消申请</view> -->
+    </view>
+  </view>
+  <view class='await1' wx:if="{{list.status==2}}">
+    商家已同意了您的退款申请，请等待退款
+  </view>
+  <view class='await2' wx:if="{{list.status==4}}">
+    <view class='count1'>退款完成</view>
+    <view class='flex count1'>
+      <view>退款总金额</view>
+      <view class='text-right'>
+        <view>￥{{list.order_money}}</view>
+      </view>
+    </view>
+    <view class='flex count1'>
+      <view>退款到账户</view>
+      <view class='text-right'>
+        <view>￥{{list.order_money}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='buttonNull'></view>
+<view class='submit text-center' wx:if="{{list.status==0}}" catchtap='submit'>提交</view>
+<button open-type="contact" class='service text-center' wx:if="{{list.status==1 || list.status==2}}">联系买家</button>
+<navigator url='/pages/orderManagement/orderManagement' open-type='navigate' class='service text-center' wx:if="{{list.status==3 || list.status==4}}">我知道了</navigator>

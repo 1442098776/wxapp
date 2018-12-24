@@ -1,0 +1,155 @@
+<view class='chipCount' hidden='{{chipCount}}'>
+  <view>
+    <view hidden="{{hidden}}">
+      <view class='flex chipSection flex-between'>
+        <text>我的碎片</text>
+        <image src='/static/images/close.png' catchtap='chipClose' />
+      </view>
+      <view class='chipSection1'>
+        <view class='title'>碎片的定义</view>
+        <view class='content'>碎片是抵扣商品价格的虚拟优惠方式，可以同优惠券一起使用。</view>
+        <view class='title'>碎片的获取方式</view>
+        <view class='content'>1、选择心仪的商品，邀请好友助力。邀请者与助力者都会获得碎片。</view>
+        <view class='content'>2、通过抽奖获得。</view>
+        <view class='content'>3、不定期的特殊活动也可获得碎片奖励。</view>
+        <view class='title'>碎片的使用方式</view>
+        <view class='content'>1、碎片可以直接用于商品的抵扣。</view>
+        <view class='content'>2、对应产品碎片可换取对应产品的优惠券。</view>
+      </view>
+    </view>
+    <view hidden='{{hidden1}}'>
+      <view class='flex chipSection flex-between'>
+        <text>我的优惠券</text>
+        <image src='/static/images/close.png' catchtap='archClose' />
+      </view>
+      <view class='chipSection1'>
+        <view class='title'>优惠券的属性</view>
+        <view class='content'>每个优惠券都有对应产品的优惠券，结算时，每个产品的优惠券只能使用一次</view>
+        <view class='title'>优惠券的获取方式</view>
+        <view class='content'>1、通过新人礼获得。</view>
+        <view class='content'>2、通过碎片换取对应商品的优惠券。</view>
+        <view class='content'>3、参与抽奖及其他活动获得。</view>
+        <view class='title'>优惠券的使用方式</view>
+        <view class='content'>1、优惠券可直接用于商品的抵扣。(每个产品只能使用一张)</view>
+        <view class='content'>2、优惠券可分享给其他微信好友（新人礼优惠券不可分享）。</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="container flex baleTitle">
+  <view>我的碎片</view>
+  <view class='text-center' catchtap='chipPopup'>?</view>
+</view>
+<view class='section container' wx:if="{{bale.suipian.length!=0}}">
+  <block wx:for="{{bale.suipian}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+    <view class='flex container contenCount'>
+      <view class='flex circle'>
+        <image catchtap='switchSelect' data-index="{{index}}" src='{{item.status==1?"/static/images/circle1.png":"/static/images/circle.png"}}' />
+      </view>
+      <view class='img'>
+        <image src='{{item.image}}' />
+      </view>
+      <view class='flex count'>
+        <view class='flex'>
+          <view class='name'>{{item.goods_name}}</view>
+          <view class='right flex'>
+            <view class='btn' catchtap='subtract' data-index="{{index}}" data-id="{{item.id}}">-</view>
+            <input class='text-center' type='number' value='{{item.num}}' disabled="true" />
+            <view class='btn' catchtap='add' data-index="{{index}}" data-id="{{item.id}}">+</view>
+          </view>
+        </view>
+        <view class='flex middle'>
+          <view class='flex debris'>
+            <view>碎片：</view>
+            <view>{{item.debrises}}/{{item.debrises_num}}</view>
+          </view>
+          <view data-id="{{item.goods_id}}" catchtap='conversion'>兑换优惠券></view>
+        </view>
+        <view class='bottom flex'>
+          <text>￥{{item.price}}</text>
+          <text>(最低￥{{item.price-item.debrises_num*0.05}})</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='nullView' wx:else>
+  <null />
+</view>
+<view class="container flex baleTitle">
+  <view>我的优惠券</view>
+  <view class='text-center' catchtap='archPopup'>?</view>
+</view>
+<view class='section1 container' wx:if="{{bale.youhui.length!=0}}">
+  <block wx:for="{{bale.youhui}}" wx:for-item="item" wx:for-index="index" wx:key="{{item.id}}">
+    <view data-id="{{item.id}}">
+      <view class='flex'>
+        <view class='img'>
+          <image src='{{item.img}}' />
+        </view>
+        <view class='center'>
+          <view class='name'>{{item.goods_name}}</view>
+          <navigator url='/pages/presenter/presenter?id={{item.id}}&user={{user}}' open-type='navigate' class='give'>赠送好友></navigator>
+        </view>
+        <view class='right flex'>
+          <view>{{item.price}}
+            <text>元</text>
+          </view>
+        </view>
+      </view>
+      <view class='time'>剩余数量：{{item.num}}</view>
+    </view>
+  </block>
+</view>
+<view class='nullView' wx:else>
+  <null />
+</view>
+<view class='buttonCount'></view>
+<view class='pay flex' wx:if="{{bale.suipian.length!=0}}">
+  <view class='left flex' catchtap='allSelect'>
+    <view>
+      <image src='{{isAllSelect?"/static/images/circle1.png":"/static/images/circle.png"}}' />
+    </view>
+    <view>全选</view>
+  </view>
+  <view class='right flex'>
+    <view>结计:
+      <text>￥{{totalMoney}}</text>
+    </view>
+    <view class='text-center' data-totalMoney="{{totalMoney}}" catchtap='total'>结算</view>
+  </view>
+</view>
+<view class='popup' wx:if="{{conversion}}">
+  <view>
+    <view class='flex flex-between top'>
+      <text>优惠券兑换</text>
+      <view catchtap='close'>
+        <image src='/static/images/close.png' />
+      </view>
+    </view>
+    <view class='flex middle container'>
+      <view class='container left'>
+        <image src='{{goodsConversion.img}}' />
+        <view class='chip text-center'>
+          拥有碎片: {{goodsConversion.debrises}}/{{goodsConversion.debrises_num}}
+        </view>
+      </view>
+      <view class='center flex'>
+        <view class='text-center'>{{goodsConversion.aa}}碎片</view>
+        <view>
+          <image src='/static/images/arrows.png' />
+        </view>
+      </view>
+      <view class='right container'>
+        <image src='{{goodsConversion.img}}' />
+        <view class='chip text-center'>
+          ￥{{goodsConversion.price}}优惠券
+        </view>
+      </view>
+    </view>
+    <view class='bottom'>
+      <button type='primary' catchtap='submit' plain wx:if="{{goodsConversion.debrises>=goodsConversion.aa}}">确认兑换</button>
+      <button class='btn' wx:else>碎片不足</button>
+    </view>
+  </view>
+</view>

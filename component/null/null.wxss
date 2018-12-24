@@ -1,0 +1,9 @@
+.null{
+  width: 347rpx;
+  height: 351rpx;
+  margin: 120rpx auto 0 auto;
+}
+.null image{
+  width: 100%;
+  height: 100%;
+}

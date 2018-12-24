@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sort/sort",
+    "pages/bale/bale",
+    "pages/user/user",
+    "pages/presenter/presenter",
+    "pages/faq/faq",
+    "pages/gba/gba",
+    "pages/Withdraw/Withdraw",
+    "pages/record/record",
+    "pages/lottery/lottery",
+    "pages/productDetails/productDetails",
+    "pages/poster/poster",
+    "pages/userEvaluation/userEvaluation",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/groupList/groupList",
+    "pages/boutiqueGoods/boutiqueGoods",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/addAddress/addAddress",
+    "pages/orderManagement/orderManagement",
+    "pages/evaluate/evaluate",
+    "pages/orderDetails/orderDetails",
+    "pages/salesReturn/salesReturn",
+    "pages/logistics/logistics",
+    "pages/refund/refund",
+    "pages/salesService/salesService",
+    "pages/notice/notice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#FAFAFA",
+    "borderStyle": "white",
+    "selectedColor": "#FE4543",
+    "color": "#353535",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/index.png",
+        "selectedIconPath": "static/images/index1.png"
+      },
+      {
+        "pagePath": "pages/sort/sort",
+        "text": "分类",
+        "iconPath": "static/images/sort.png",
+        "selectedIconPath": "static/images/sort1.png"
+      },
+      {
+        "pagePath": "pages/bale/bale",
+        "text": "背包",
+        "iconPath": "static/images/bale.png",
+        "selectedIconPath": "static/images/bale1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "static/images/user.png",
+        "selectedIconPath": "static/images/user1.png"
+      }
+    ]
+  }
+}

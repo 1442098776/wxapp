@@ -1,0 +1,67 @@
+.container {
+  position: relative;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  width: 100%;
+} 
+.loadImg>view{
+  margin-top: 30rpx;
+  width: 17%;
+  height: 120rpx;
+  margin-right: 3%;
+  margin-bottom: 40rpx;
+  box-sizing: border-box;
+}
+.loadImg icon{
+  position: absolute;
+  right: -20rpx;
+  top: -20rpx;
+  z-index: 10;
+}
+.loadImg image{
+  width: 100%;
+  height: 100%;
+}
+.flex{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-between{
+  justify-content: space-between;
+}
+view,text,navigator,button,input{
+  font-family: PingFang-SC-Medium;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+.text-center{
+  text-align: center;
+}
+
+.update{
+  width: 160rpx;
+  height: 160rpx;
+  color: #999999;
+  font-size: 28rpx;
+  border:1rpx dashed #CCCCCC;
+}
+.update>view:first-of-type{
+  justify-content: center;
+  margin-top: 30rpx;
+  margin-bottom: 15rpx;
+}
+.update image{
+  width: 60rpx;
+  height: 60rpx;
+  justify-content: center;
+}

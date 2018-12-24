@@ -1,0 +1,35 @@
+<navigator url='/pages/record/record' open-type='navigate' class="text-right record">提现记录</navigator>
+<view class='section'>
+  <image src='/static/images/money.png' />
+  <view class='text-center'>￥{{list.tixian}}</view>
+  <view class='text-center grey'>可提现金额</view>
+  <view class='flex flex-between text-center'>
+    <view>已提现：￥{{list.yitixian}}</view>
+    <view>冻结：￥{{list.dongjie}}</view>
+  </view>
+  <view class='text-center btn' catchtap='Withdraw'>我要提现</view>
+  <view class='text-center grey'>超过50元方可提现，
+    <text class='green' catchtap='submit' data-tixian="{{list.tixian}}">提现全部</text>
+  </view>
+  <view class='bottom'>
+    <view class='text-center'>提现说明</view>
+    <view class='text-center grey'>请提现前仔细阅读提现说明</view>
+  </view>
+</view>
+<view class='popup' wx:if="{{popup}}">
+  <view class='conetenCount' wx:if="{{show}}">
+    <view class='title'>提现金额</view>
+    <input type='number' value='{{value}}' bindinput='inputValue' placeholder='请输入提现金额' />
+    <view class='submit text-center' catchtap='submit'>确认提现</view>
+  </view>
+  <view class='conetenCount1' wx:if="{{success && show==false}}">
+    <icon type='success' size='120' class='flex'></icon>
+    <view class='text-center text'>申请提现成功</view>
+    <view class='grey text-center'>感谢您的支持!</view>
+  </view>
+  <view class='conetenCount1' wx:elif="{{success==false && show==false}}">
+    <icon type='warn' size='120' class='flex'></icon>
+    <view class='text-center text'>申请提现失败</view>
+    <view class='grey text-center'>余额不足</view>
+  </view>
+</view>

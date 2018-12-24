@@ -1,0 +1,38 @@
+<view class="section">
+  <view>
+    <view class='img container flex'>
+      <view><image src='{{list.img}}' /></view>
+      <view class='text-center'>
+      <view>{{list.coupons}}</view>
+      <view>优惠券</view>
+      </view>
+    </view>
+    <view class='text-center'>{{list.goods_name}}</view>
+    <view class='text-center price'>￥{{list.price}}</view>
+  </view>
+  <button open-type="share" class='submit text-center' wx:if="{{show}}">赠送好友</button>
+  <view class='submit text-center' wx:else catchtap='getArch'>立即领取</view>
+</view>
+<view class='section4 container'>
+  <view class='title text-center container'>
+    <image src='/static/images/bg.png' mode="widthFix" />
+    <text>精品推荐</text>
+  </view>
+  <view class='flex boutique'>
+    <block wx:for="{{list.goods}}" wx:for-item="item" wx:key="{{item.id}}">
+      <navigator url='/pages/productDetails/productDetails?id={{item.id}}' open-type='navigate'>
+        <view class='img'> 
+          <image src='{{item.pic0}}' />
+        </view>
+        <view class='name'>{{item.name}}</view>
+        <view class='flex bottom'>
+          <view class='price'><view><text>￥</text>{{item.price}}</view></view>
+          <view class='num flex'>
+            <view>+{{item.debriss}}碎片</view>
+            <view>销量:{{item.saleses}}</view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

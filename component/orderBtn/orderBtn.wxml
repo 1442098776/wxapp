@@ -1,0 +1,29 @@
+<view class='remind'>
+  <view class='flex btn' wx:if="{{state==1}}">
+    <view class='active' wx:if="{{show}}" data-tot="{{tot}}" data-orderNumber="{{orderNumber}}" catchtap='pay'>立即付款</view>
+    <view data-index="{{index}}" data-orderNumber="{{orderNumber}}" catchtap='cancel'>取消</view>
+    <!-- <view>分享有奖</view> -->
+  </view>
+  <view class='flex btn' wx:elif="{{state==2}}">
+    <view catchtap='refund' data-orderNumber="{{orderNumber}}">申请退款</view>
+    <!-- <view>分享有奖</view> -->
+  </view>
+  <view class='flex btn' wx:elif="{{state==3}}">
+    <view class='active' data-orderNumber="{{orderNumber}}" catchtap='shipments'>提醒发货</view>
+    <view catchtap='refund' data-orderNumber="{{orderNumber}}">申请退款</view>
+    <!-- <view>分享有奖</view> -->
+  </view>
+  <view class='flex btn' wx:elif="{{state==4}}">
+    <view class='active' catchtap='affirm' data-orderNumber="{{orderNumber}}" data-index="{{index}}">确认收货</view>
+    <view catchtap='look' data-orderNumber="{{orderNumber}}" data-oddNumber="{{oddNumber}}">查看物流</view>
+    <!-- <view>分享有奖</view> -->
+  </view>
+  <view class='flex btn' wx:elif="{{state==5}}">
+    <view class='active' data-text="评价" data-orderNumber="{{orderNumber}}" catchtap='evaluate'>评价</view>
+    <view catchtap='salesReturn' data-orderNumber="{{orderNumber}}" data-text="申请退货">申请退货</view>
+    <!-- <view>分享有奖</view> -->
+  </view>
+  <view class='flex btn' wx:elif="{{state==8}}">
+    <view data-index="{{index}}" data-orderNumber="{{orderNumber}}" catchtap='remove'>删除订单</view>
+  </view>
+</view>

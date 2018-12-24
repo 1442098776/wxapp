@@ -1,0 +1,36 @@
+<view class="container section">
+  <block wx:for="{{content.cates}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+    <view data-id="{{item.id}}" bindtap='scroll' class='{{sortIndex==index?"active":""}}' data-index="{{index}}">
+      {{item.name}}
+    </view>
+  </block>
+</view>
+<view class='flex contentCount'>
+  <scroll-view scroll-y="true" enable-back-to-top="true" style="height:{{h}}px" class='section1 flex'>
+    <view>
+      <view class='titleImg'>
+        <image src="{{content.solide}}" />
+      </view>
+      <view class='boutique flex'>
+        <block wx:for="{{content.goods}}" wx:for-item="item" wx:key="{{item.id}}">
+          <navigator url='/pages/productDetails/productDetails?id={{item.id}}' open-type='navigate'>
+            <view class='img'>
+              <image src='{{item.pic0}}' />
+            </view>
+            <view class='name'>{{item.name}}</view>
+            <view class='flex bottom'>
+              <view class='price'>
+                <view>
+                  <text>￥</text>{{item.price}}</view>
+              </view>
+              <view class='num flex'>
+                <view>+{{item.debris}}碎片</view>
+                <view>销量:{{item.saleses}}</view>
+              </view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+</view>

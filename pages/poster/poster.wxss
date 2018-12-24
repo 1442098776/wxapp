@@ -1,0 +1,57 @@
+page{
+  border-top: 4rpx solid #fafafa;
+  background: #fff;
+}
+.section{
+  padding:109rpx 0 104rpx;
+}
+.touchScroll{
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+.touch{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  width: 186%;
+  align-items: center;
+  padding:30rpx 10rpx;
+}
+scroll-view canvas{
+  width: 61%;
+  height: 704rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 2rpx 0rpx #DBDEE3;
+}
+scroll-view canvas:nth-of-type(2){
+  margin-left: 38rpx;
+  margin-right: 38rpx;
+}
+canvas.active{
+  box-shadow: 0rpx 0rpx 6rpx 1rpx #DBDEE3;
+}
+.submit{
+  margin:0 auto;
+  width: 400rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #FE4543;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  -webkit-border-radius: 44rpx;
+  -moz-border-radius: 44rpx;
+  -ms-border-radius: 44rpx;
+  -o-border-radius: 44rpx;
+}
+.share{
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 20rpx;
+}

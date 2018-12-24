@@ -1,0 +1,12 @@
+<view class="container section">
+  <view>
+    <view class='title text-center'><image src='/static/images/font.png' /></view>
+    <view class='content'>第一步：用户可通过分享好友，抽奖等活动获取碎片，</view>
+    <view class='content'>第二步：在购买时可通过碎片抵扣相应的价格优惠。</view>
+  </view>
+  <view>
+    <view class='title text-center'><image src='/static/images/font1.png' /></view>
+    <view class='content'>第一步：用户可通过自己开团或加入已有团进行付款购买，</view>
+    <view class='content'>第二步：待成团后，卖家发货；若未成团，原付款原路退回。</view>
+  </view>
+</view>

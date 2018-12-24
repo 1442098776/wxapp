@@ -1,0 +1,8 @@
+<view class='section'>
+  <block wx:for="{{list}}" wx:for-item="item" wx:key="{{item.id}}">
+    <view class='count'>
+      <view class='title'>{{item.title}}</view>
+      <view class='content'>{{item.content}}</view>
+    </view>
+  </block>
+</view>

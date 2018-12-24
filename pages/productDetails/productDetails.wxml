@@ -1,0 +1,165 @@
+<view class='section container'>
+  <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{list.pic}}" wx:for-item="item" wx:key="{{index}}">
+      <swiper-item data-index="{{index}}" catchtap="swiperImg">
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='ellipse'>
+    <view class='text-center' wx:if="{{state!=1}}">拥有的碎片：{{list.goods.suipian}}/{{list.goods.num}}</view>
+    <!-- <view class='text-center' wx:else>{{}}刚刚参加了{{}}的拼团</view> -->
+  </view>
+</view>
+<view class='section1' wx:if="{{state!=1}}">
+  <view class='flex contenCount container'>
+    <view class='text'>
+      <text></text>
+    </view>
+    <view class='left flex'>￥{{list.goods.price}}</view>
+    <view class='center'>
+      <view>集齐{{list.goods.num}}碎片</view>
+      <view>即可￥{{list.goods.price-(list.goods.num*0.05)}}购买</view>
+    </view>
+    <view class='right flex'>
+      <view class='flex' catchtap='share'>分享集碎片</view>
+    </view>
+  </view>
+  <view class='contenCount1'>
+    <view class='flex flex-between'>
+      <view class='name'>{{list.goods.name}}</view>
+      <text>销量:{{list.goods.saleses}}</text>
+    </view>
+    <view class='text'>{{list.goods.descr1}}</view>
+    <view class='text1' wx:if="{{list.goods.suipian>list.goods.num}}">碎片:{{list.goods.suipian}}/{{list.goods.num}}已省￥{{list.goods.num*0.05}}</view>
+    <view class='text1' wx:else>碎片:{{list.goods.suipian}}/{{list.goods.num}}已省￥{{list.goods.suipian*0.05}}</view>
+    <view class='flex hint'>
+      <block wx:for="{{hint}}" wx:for-item="item" wx:key="{{index}}">
+        <view class='flex'>
+          <image src='{{item.img}}' />
+          <view>{{item.text}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='section2' wx:else>
+  <view class='contenCount'>
+    <view class='flex flex-between price'>
+      <view class='flex'>
+        <view>￥{{list.pintuan.price}}</view>
+        <text class='flex'>￥{{list.pintuan.yprice}}</text>
+      </view>
+      <view class='flex' catchtap='share'>
+        <image src='/static/images/share.png' />
+      </view>
+    </view>
+    <view class='flex flex-between name'>
+      <view>{{list.pintuan.goods_name}}</view>
+      <text>已成团：{{list.yct}}</text>
+    </view>
+    <view class='text'>{{list.pintuan.descr1}}</view>
+    <view>
+      <block wx:for="{{list.chengtuan}}" wx:for-item="item" wx:key="{{index}}" wx:key="{{item.orderid}}">
+        <view class='flex userBying'>
+          <view class='userImg'>
+            <image src='{{item.touxiang}}' />
+          </view>
+          <view class='userName'>{{item.name}}的团</view>
+          <view class='num'>差{{item.people_max-item.people}}人成团</view>
+          <view class='play flex'>
+            <view class='text-center' data-state="{{state}}" data-status="0" data-id="{{id}}" data-shareUser="{{shareUser}}" catchtap='submit'>去参团</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='contenCount1'>
+    <view class='title'>如何拼团</view>
+    <view class='flex'>
+      <view class='flex'>
+        <text>1</text>发起拼团</view>
+      <view class='flex'>
+        <text>2</text>支付并邀请好友</view>
+    </view>
+    <view class='flex'>
+      <view class='flex'>
+        <text>3</text>拼团成功，等待发货</view>
+      <view class='flex'>
+        <text>4</text>拼团失败，全额退款</view>
+    </view>
+  </view>
+  <view class='flex hint'>
+    <block wx:for="{{hint}}" wx:for-item="item" wx:key="{{index}}">
+      <view class='flex'>
+        <image src='{{item.img}}' />
+        <view>{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+  <view class='text-center time'><view>拼团时间: {{time}}</view></view>
+</view>
+<view class='section3'>
+  <navigator url='/pages/userEvaluation/userEvaluation?id={{id}}' open-type='navigate' class='flex flex-between titleTop'>
+    <text>商品评价</text>
+    <image src='/static/images/right.png' />
+  </navigator>
+  <block wx:for="{{list.com}}" wx:for-item="item" wx:for-index="index" wx:key="{{item.id}}" wx:if="{{list.com!=null}}">
+    <view class='evaluate'>
+      <view class='flex flex-between'>
+        <text>{{item.user_name}}</text>
+        <text>{{item.time}}</text>
+      </view>
+      <view class='text'>{{item.comment}}</view>
+      <view class='flex img'>
+        <block wx:for="{{item.img}}" wx:for-item="item1" wx:for-index="index1" wx:key="{{index1}}">
+          <image src='{{item1}}' data-index="{{index}}" data-index1="{{index1}}" catchtap='previewImage' />
+        </block>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='section4 container'>
+  <navigator url='/pages/boutiqueGoods/boutiqueGoods' open-type='navigate' class='flex flex-between titleTop1'>
+    <text>优选推荐</text>
+    <image src='/static/images/right.png' />
+  </navigator>
+  <scroll-view scroll-x="true">
+    <view class='goods container'>
+      <block wx:for="{{list.tuijian}}" wx:for-item="item" wx:key="{{item.id}}">
+        <navigator url='/pages/productDetails/productDetails?id={{item.id}}'>
+          <view>
+            <image src='{{item.pic0}}' />
+          </view>
+          <view class='text-center name'>{{item.name}}</view>
+          <view class='text-center price'>￥{{item.price}}</view>
+        </navigator>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view class='section5'>
+  <view>商品详情</view>
+    <image src='{{list.xiangqing}}' mode="widthFix" catchtap='previewImage1' data-img="{{list.xiangqing}}" />
+</view>
+<view class='submit text-center' data-state="{{state}}" data-status="1" data-id="{{id}}" data-shareUser="{{shareUser}}" catchtap='submit' wx:if="{{state==1}}">立即开团</view>
+<view class='submit text-center' data-state="{{state}}" data-id="{{id}}" data-shareUser="{{shareUser}}" catchtap='submit' wx:else>立即购买</view>
+<view class='popup' wx:if="{{popup}}" catchtap='popupHidden'>
+  <view catchtap='popupShow'>
+    <view>分享</view>
+    <view class='flex'>
+      <button open-type="share" data-id="{{id}}">
+        <view>
+          <image src='/static/images/wx.png' />
+        </view>
+        <view class='text-center text'>微信好友</view>
+      </button>
+      <view catchtap='poster'>
+        <view>
+          <image src='/static/images/poster.png' />
+        </view>
+        <view class='text-center text'>生成海报</view>
+      </view>
+    </view>
+  </view>
+</view>
