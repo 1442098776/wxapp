@@ -1,3 +1,4 @@
+<wxs module="filters" src="./order.wxs"></wxs>
 <view class="section container">
 <navigator wx:if="{{list.address==0}}" url='/pages/address/address' open-type='navigate' class='flex address'>
     <text>地址选择</text>
@@ -74,7 +75,7 @@
   <view>共
     <text>{{totalNum}}</text>件商品
     <text> </text> 合计：
-    <text>￥{{totalMoney}}</text>
+    <text>￥{{filters.toFix(totalMoney)}}</text>
   </view>
 </view>
 <view class='flex bottomList'>
@@ -110,7 +111,7 @@
     </view>
     <view class='flex'>
       <view>应付金额</view>
-      <view>￥{{totalMoney}}</view>
+      <view>￥{{filters.toFix(totalMoney)}}</view>
     </view>
   </view>
   <view class='flex text-center' data-shareUser="{{shareUser}}" catchtap='startPay'>

@@ -60,8 +60,9 @@ Page({
       coupons = this.data.list.coupons,
       img = this.data.list.img;
     if (options.from == 'button') {
+      console.log(that.data.list.coupons)
       return {
-        title: that.data.list.goods_name + '10元优惠券',
+        title: that.data.list.goods_name + that.data.list.coupons+'元优惠券',
         desc: '',
         path: '/pages/presenter/presenter?goods_name=' + goods_name + '&price=' + price + '&coupons=' + coupons + '&img=' + img+'&user=' + app.globalData.loginState+'&id='+that.data.id,
         success: function (res) {
