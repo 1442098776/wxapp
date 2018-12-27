@@ -60,12 +60,12 @@ Page({
       coupons = this.data.list.coupons,
       img = this.data.list.img;
     if (options.from == 'button') {
-      console.log(that.data.list.coupons)
       return {
         title: that.data.list.goods_name + that.data.list.coupons+'元优惠券',
         desc: '',
         path: '/pages/presenter/presenter?goods_name=' + goods_name + '&price=' + price + '&coupons=' + coupons + '&img=' + img+'&user=' + app.globalData.loginState+'&id='+that.data.id,
         success: function (res) {
+          console.log(res)
           if(res.errMsg=='shareAppMessage:ok'){
             console.log(that.data.list)
             wx.showToast({
@@ -73,6 +73,8 @@ Page({
               mask:true,
               duration:500
             })
+            console.log("id:" + that.data.id)
+            console.log("分享人:" + app.globalData.loginState)
             console.log('赠关成功')
             console.log('thr_session:' + app.globalData.loginState + "-------" + 'id:' + that.data.id)
             util.request(api.coupons, { thr_session: app.globalData.loginState, id: that.data.id},"POST").then(msg=>{
@@ -89,7 +91,7 @@ Page({
   getArch(){
     let thr_session=this.data.user,
         id=this.data.id;
-    util.request(api.coupons3, { thr_session: thr_session, id: id, thr_session1:app.globalData.loginState}).then(res=>{
+    util.request(api.coupons3, { thr_session: thr_session, id: id, thr_session1:app.globalData.loginState},"POST").then(res=>{
       console.log(res)
       wx.showModal({
         title: '领取成功',
